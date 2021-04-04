@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ROOT_DIR=$(cd $(dirname $0); pwd)/..
+cd "$ROOT_DIR"
+julia --color=yes --depwarn=no --project -e "using Pkg;Pkg.update()"
+
+cd "$ROOT_DIR/test"
+julia --color=yes --depwarn=no --project -e "using Pkg; Pkg.update()"

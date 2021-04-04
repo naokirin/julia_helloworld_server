@@ -1,0 +1,3 @@
+#!/bin/sh
+
+julia  --sysimage sysimage/sysimage.dylib --color=yes --depwarn=no -q -i -- bootstrap.jl s

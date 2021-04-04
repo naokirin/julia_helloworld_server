@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ROOT_DIR=$(cd $(dirname $0); pwd)/..
+cd "$ROOT_DIR"
+julia --color=yes --depwarn=no --project -e 'using Pkg; Pkg.add("PackageCompiler"); Pkg.add("TOML"); using PackageCompiler, TOML; packages = keys(TOML.parsefile("./Project.toml")["deps"]); create_sysimage(Symbol.(packages); sysimage_path="sysimage/sysimage.dylib")'

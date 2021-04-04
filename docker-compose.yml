@@ -1,0 +1,17 @@
+version: '2.2'
+volumes:
+  excluded_sysimage:
+services:
+  julia_helloworld_server:
+    container_name: julia_helloworld_server
+    build:
+      context: .
+    ports:
+      - 8888:80
+    volumes:
+      - ./app:/app
+      - excluded_sysimage:/app/sysimage
+    environment:
+      - JULIA_NUM_THREADS=5
+    restart: on-failure:3
+
